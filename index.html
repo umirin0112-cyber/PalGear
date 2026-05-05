@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>パルギア補助</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+
+  <body>
+    <main class="app">
+      <section class="top-area">
+        <div class="control-panel">
+          <div class="hp-panel">
+            <div class="hp-main">
+              <div class="status-icon">♥</div>
+              <div id="hpValue" class="status-value">10</div>
+            </div>
+
+            <div class="hp-action-area">
+              <div class="hp-buttons">
+                <button id="hpMinus" class="hp-minus-button">-1</button>
+                <button id="hpPlus" class="hp-plus-button">+1</button>
+              </div>
+
+              <button id="turnEndButton" class="turn-end-button">
+                ターンエンド
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="palArea" class="pal-area"></div>
+      </section>
+
+      <section class="bottom-area">
+        <div class="soul-deck-panel">
+          <button id="soulDrawButton" class="soul-draw-button">
+            <span>ソウル</span>
+            <strong id="soulCount">0/0</strong>
+          </button>
+
+          <button id="soulReturnButton" class="soul-return-button">
+            戻す
+          </button>
+        </div>
+
+        <div id="soulZone" class="soul-zone"></div>
+
+        <button id="spendSoulButton" class="spend-soul-button">レスト</button>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,311 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: #0f172a;
+  color: #f8fafc;
+  font-family: system-ui, sans-serif;
+  overflow: hidden;
+}
+
+button,
+select {
+  font-family: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  background: #3b82f6;
+  color: #ffffff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  gap: 8px;
+  padding: 8px;
+}
+
+.top-area {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  gap: 8px;
+}
+
+.control-panel,
+.pal-slot,
+.bottom-area {
+  min-height: 0;
+  border: 2px solid #334155;
+  border-radius: 14px;
+  background: #1e293b;
+}
+
+.control-panel {
+  display: grid;
+  padding: 8px;
+}
+
+/* HP枠 */
+.hp-panel {
+  display: grid;
+  grid-template-rows: 1fr 132px;
+  gap: 8px;
+  min-height: 0;
+}
+
+.hp-main {
+  align-self: center;
+  display: grid;
+  grid-template-rows: auto auto;
+  justify-items: center;
+  align-content: center;
+  gap: 8px;
+}
+
+.hp-action-area {
+  align-self: end;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 4px;
+}
+
+.hp-buttons {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.hp-buttons button {
+  padding: 10px 4px;
+  font-size: 18px;
+}
+
+.hp-minus-button {
+  background: #ef4444;
+}
+
+.hp-plus-button {
+  background: #22c55e;
+}
+
+.turn-end-button {
+  width: 100%;
+  padding: 10px 4px;
+  background: #eab308;
+  color: #111827;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* 共通アイコン/数値 */
+.status-icon,
+.power-icon {
+  height: 32px;
+  line-height: 32px;
+  font-size: 28px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-value,
+.power-select {
+  height: 58px;
+  line-height: 58px;
+  font-size: 48px;
+  font-weight: 900;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* パル枠 */
+.pal-area {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.pal-slot {
+  display: grid;
+  grid-template-rows: 1fr 132px;
+  gap: 8px;
+  padding: 8px;
+}
+
+.power-main {
+  align-self: center;
+  display: grid;
+  grid-template-rows: auto auto;
+  justify-items: center;
+  align-content: center;
+  gap: 8px;
+}
+
+.power-select {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: center;
+  text-align-last: center;
+  appearance: none;
+  padding: 0;
+}
+
+.power-select:focus {
+  outline: 2px solid #3b82f6;
+  border-radius: 10px;
+}
+
+.pal-buttons {
+  align-self: end;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 4px;
+}
+
+.power-adjust-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.power-adjust-buttons button,
+.lock-button,
+.delete-button {
+  width: 100%;
+  min-width: 0;
+  padding: 8px 4px;
+  font-size: 18px;
+}
+
+.minus-button {
+  background: #3b82f6;
+}
+
+.plus-button {
+  background: #3b82f6;
+}
+
+.lock-button {
+  background: #64748b;
+}
+
+.lock-button.locked {
+  background: #22c55e;
+}
+
+.delete-button {
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* ソウル枠 */
+.bottom-area {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  gap: 8px;
+  padding: 8px;
+}
+
+.soul-deck-panel {
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  gap: 6px;
+  min-height: 0;
+}
+
+.soul-draw-button {
+  background: #7c3aed;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 10px;
+}
+
+.soul-draw-button span {
+  font-size: 28px;
+}
+
+.soul-draw-button strong {
+  font-size: 30px;
+  line-height: 1;
+}
+
+.soul-return-button {
+  background: #ef4444;
+  font-size: 18px;
+}
+
+.soul-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.soul-card {
+  flex: 0 0 auto;
+  width: 58px;
+  height: 86px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #facc15, #f97316);
+  border: 3px solid #fef3c7;
+  transition: transform 0.15s ease;
+}
+
+.soul-card.tapped {
+  transform: rotate(90deg);
+}
+
+.spend-soul-button {
+  width: 100%;
+  height: 100%;
+  align-self: stretch;
+  justify-self: stretch;
+  background: #334155;
+  border: 2px solid #475569;
+  font-size: 24px;
+}
+.hp-buttons,
+.power-adjust-buttons,
+.pal-buttons,
+.soul-deck-panel {
+  gap: 8px;
+}
+
+.hp-action-area {
+  gap: 8px;
+}
+
+.pal-slot {
+  gap: 12px;
+}
+
+.bottom-area {
+  gap: 12px;
+}
+
+.soul-zone {
+  gap: 10px;
+}
