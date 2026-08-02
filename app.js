@@ -8,7 +8,7 @@ const defaultState = () => ({
   souls: [],
 });
 
-let state = loadState();
+let state = normalizeState(loadState());
 
 const hpValue = document.getElementById('hpValue');
 const hpMinus = document.getElementById('hpMinus');
@@ -47,11 +47,22 @@ function loadState() {
   }
 }
 
+function normalizeState(rawState) {
+  return {
+    hp: Math.max(0, Number(rawState.hp) || 0),
+    food: Math.max(0, Number(rawState.food) || 0),
+    material: Math.max(0, Number(rawState.material) || 0),
+    souls: Array.isArray(rawState.souls) ? rawState.souls : [],
+  };
+}
+
 function saveState() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 }
 
 function render() {
+  state = normalizeState(state);
+
   hpValue.textContent = state.hp;
   foodValue.textContent = state.food;
   materialValue.textContent = state.material;
@@ -155,7 +166,7 @@ function runWithCooldown(button, action) {
 }
 
 function changeCounter(key, amount) {
-  state[key] += amount;
+  state[key] = Math.max(0, (Number(state[key]) || 0) + amount);
   render();
 }
 
