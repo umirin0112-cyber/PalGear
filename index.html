@@ -10,34 +10,53 @@
   <body>
     <main class="app">
       <section class="top-area">
-        <div class="control-panel">
-          <div class="hp-panel">
-            <div class="hp-main">
-              <div class="status-icon">♥</div>
-              <div id="hpValue" class="status-value">10</div>
-            </div>
+        <div class="counter-panel">
+          <div class="counter-main">
+            <div class="counter-icon">♥</div>
+            <div id="hpValue" class="counter-value">10</div>
+          </div>
 
-            <div class="hp-action-area">
-              <div class="hp-buttons">
-                <button id="hpMinus" class="hp-minus-button">-1</button>
-                <button id="hpPlus" class="hp-plus-button">+1</button>
-              </div>
-
-              <button id="turnEndButton" class="turn-end-button">
-                ターンエンド
-              </button>
+          <div class="counter-action-area">
+            <div class="counter-buttons">
+              <button id="hpMinus" class="minus-red">-1</button>
+              <button id="hpPlus" class="plus-green">+1</button>
             </div>
           </div>
         </div>
 
-        <div id="palArea" class="pal-area"></div>
+        <div class="counter-panel">
+          <div class="counter-main">
+            <div class="counter-icon">🥖</div>
+            <div id="foodValue" class="counter-value">0</div>
+          </div>
+
+          <div class="counter-action-area">
+            <div class="counter-buttons">
+              <button id="foodMinus" class="minus-red">-1</button>
+              <button id="foodPlus" class="plus-green">+1</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="counter-panel">
+          <div class="counter-main">
+            <div class="counter-icon">🪵</div>
+            <div id="materialValue" class="counter-value">0</div>
+          </div>
+
+          <div class="counter-action-area">
+            <div class="counter-buttons">
+              <button id="materialMinus" class="minus-red">-1</button>
+              <button id="materialPlus" class="plus-green">+1</button>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="bottom-area">
         <div class="soul-deck-panel">
           <button id="soulDrawButton" class="soul-draw-button">
-            <span>ソウル</span>
-            <strong id="soulCount">0/0</strong>
+            ソウルを追加
           </button>
 
           <button id="soulReturnButton" class="soul-return-button">
@@ -45,9 +64,24 @@
           </button>
         </div>
 
-        <div id="soulZone" class="soul-zone"></div>
+        <div class="soul-zone-panel">
+          <div id="soulCount" class="soul-count">0/0</div>
+          <div id="soulZone" class="soul-zone"></div>
+        </div>
 
-        <button id="spendSoulButton" class="spend-soul-button">レスト</button>
+        <div class="soul-action-panel">
+          <button id="spendSoulButton" class="spend-soul-button">
+            レスト
+          </button>
+
+          <button id="standSoulButton" class="stand-soul-button">
+            スタンド
+          </button>
+
+          <button id="turnStartButton" class="turn-start-button">
+            ターン開始
+          </button>
+        </div>
       </section>
     </main>
 
