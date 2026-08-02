@@ -6,7 +6,7 @@ html,
 body {
   margin: 0;
   width: 100%;
-  height: 100%;
+  height: 100dvh;
   background: #0f172a;
   color: #f8fafc;
   font-family: system-ui, sans-serif;
@@ -28,18 +28,18 @@ button {
 
 .app {
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   display: grid;
   grid-template-rows: 1fr 2fr;
-  gap: 8px;
-  padding: 8px;
+  gap: clamp(4px, 1vmin, 8px);
+  padding: clamp(4px, 1vmin, 8px);
 }
 
 .top-area {
   min-height: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: clamp(4px, 1vmin, 8px);
 }
 
 .counter-panel,
@@ -52,9 +52,9 @@ button {
 
 .counter-panel {
   display: grid;
-  grid-template-rows: 1fr auto;
-  gap: 6px;
-  padding: 8px;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: clamp(4px, 1vmin, 8px);
+  padding: clamp(6px, 1.2vmin, 8px);
 }
 
 .counter-main {
@@ -63,13 +63,14 @@ button {
   grid-template-rows: auto auto;
   justify-items: center;
   align-content: center;
-  gap: 4px;
+  gap: clamp(2px, 0.8vmin, 6px);
+  min-height: 0;
 }
 
 .counter-icon {
-  height: 30px;
-  line-height: 30px;
-  font-size: 28px;
+  height: clamp(24px, 5vmin, 34px);
+  line-height: clamp(24px, 5vmin, 34px);
+  font-size: clamp(22px, 5vmin, 32px);
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -77,9 +78,9 @@ button {
 }
 
 .counter-value {
-  height: 50px;
-  line-height: 50px;
-  font-size: 46px;
+  height: clamp(42px, 8vmin, 64px);
+  line-height: clamp(42px, 8vmin, 64px);
+  font-size: clamp(40px, 8vmin, 60px);
   font-weight: 900;
   color: #ffffff;
   display: flex;
@@ -96,12 +97,13 @@ button {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  gap: clamp(5px, 1vmin, 8px);
 }
 
 .counter-buttons button {
-  padding: 10px 4px;
-  font-size: 22px;
+  min-height: clamp(42px, 7vmin, 58px);
+  padding: 6px 4px;
+  font-size: clamp(18px, 4vmin, 24px);
 }
 
 .minus-red {
@@ -114,62 +116,61 @@ button {
 
 .bottom-area {
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  gap: 8px;
-  padding: 8px;
+  grid-template-columns: minmax(72px, 1fr) minmax(0, 4fr) minmax(72px, 1fr);
+  gap: clamp(4px, 1vmin, 8px);
+  padding: clamp(4px, 1vmin, 8px);
 }
 
 .soul-deck-panel {
   display: grid;
   grid-template-rows: 3fr 1fr;
-  gap: 8px;
+  gap: clamp(4px, 1vmin, 8px);
   min-height: 0;
 }
 
 .soul-draw-button {
   background: #7c3aed;
-  font-size: 24px;
-  line-height: 1.2;
-  padding: 8px;
+  font-size: clamp(16px, 3.2vmin, 24px);
+  line-height: 1.25;
+  padding: 6px;
 }
 
 .soul-return-button {
   background: #ef4444;
-  font-size: 22px;
+  font-size: clamp(18px, 3.5vmin, 22px);
 }
 
 .soul-zone-panel {
   min-height: 0;
   display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 8px;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: clamp(4px, 1vmin, 8px);
   border-radius: 14px;
   background: #1e293b;
 }
 
 .soul-count {
   text-align: center;
-  font-size: 34px;
+  font-size: clamp(26px, 5vmin, 34px);
   font-weight: 900;
   line-height: 1;
-  padding-top: 4px;
+  padding-top: 2px;
 }
 
 .soul-zone {
   min-height: 0;
   display: grid;
-  grid-template-columns: repeat(5, 70px);
-  grid-template-rows: repeat(2, 104px);
-  grid-auto-flow: row;
-  align-content: center;
-  justify-content: center;
-  gap: 10px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: clamp(4px, 1vmin, 10px);
   overflow: hidden;
 }
 
 .soul-card {
-  width: 70px;
-  height: 104px;
+  width: min(70px, 62%);
+  aspect-ratio: 70 / 104;
   border-radius: 12px;
   background: linear-gradient(135deg, #facc15, #f97316);
   border: 3px solid #fef3c7;
@@ -184,7 +185,7 @@ button {
   min-height: 0;
   display: grid;
   grid-template-rows: 2fr 1fr 1fr;
-  gap: 8px;
+  gap: clamp(4px, 1vmin, 8px);
 }
 
 .spend-soul-button {
@@ -192,7 +193,7 @@ button {
   height: 100%;
   background: #3b82f6;
   border: 2px solid #60a5fa;
-  font-size: 24px;
+  font-size: clamp(18px, 3.5vmin, 24px);
 }
 
 .stand-soul-button {
@@ -200,7 +201,7 @@ button {
   height: 100%;
   background: #22c55e;
   border: 2px solid #86efac;
-  font-size: 24px;
+  font-size: clamp(18px, 3.5vmin, 24px);
 }
 
 .turn-start-button {
@@ -209,5 +210,42 @@ button {
   background: #eab308;
   color: #111827;
   border: 2px solid #fde047;
-  font-size: 20px;
+  font-size: clamp(15px, 3vmin, 20px);
+  line-height: 1.2;
+}
+
+@media (orientation: portrait) {
+  .bottom-area {
+    grid-template-columns: 76px minmax(0, 1fr) 76px;
+  }
+
+  .soul-card {
+    width: min(64px, 60%);
+  }
+
+  .soul-draw-button,
+  .spend-soul-button,
+  .stand-soul-button,
+  .turn-start-button {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: 0.05em;
+  }
+}
+.soul-count-panel {
+  display: grid;
+  grid-template-rows: auto auto;
+  justify-items: center;
+  align-content: center;
+  gap: 2px;
+  padding-top: 2px;
+}
+
+.soul-icon {
+  font-size: clamp(20px, 4vmin, 28px);
+  line-height: 1;
+}
+
+.soul-count {
+  padding-top: 0;
 }
