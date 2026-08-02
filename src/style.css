@@ -11,11 +11,8 @@ body {
   color: #f8fafc;
   font-family: system-ui, sans-serif;
   overflow: hidden;
-}
-
-button,
-select {
-  font-family: inherit;
+  touch-action: manipulation;
+  user-select: none;
 }
 
 button {
@@ -23,15 +20,17 @@ button {
   border-radius: 10px;
   background: #3b82f6;
   color: #ffffff;
+  font-family: inherit;
   font-weight: 900;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .app {
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 1fr 2fr;
   gap: 8px;
   padding: 8px;
 }
@@ -39,12 +38,11 @@ button {
 .top-area {
   min-height: 0;
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
 }
 
-.control-panel,
-.pal-slot,
+.counter-panel,
 .bottom-area {
   min-height: 0;
   border: 2px solid #334155;
@@ -52,70 +50,25 @@ button {
   background: #1e293b;
 }
 
-.control-panel {
+.counter-panel {
   display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 6px;
   padding: 8px;
 }
 
-/* HP枠 */
-.hp-panel {
-  display: grid;
-  grid-template-rows: 1fr 132px;
-  gap: 8px;
-  min-height: 0;
-}
-
-.hp-main {
+.counter-main {
   align-self: center;
   display: grid;
   grid-template-rows: auto auto;
   justify-items: center;
   align-content: center;
-  gap: 8px;
-}
-
-.hp-action-area {
-  align-self: end;
-  width: 100%;
-  display: grid;
-  grid-template-rows: auto auto;
   gap: 4px;
 }
 
-.hp-buttons {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px;
-}
-
-.hp-buttons button {
-  padding: 10px 4px;
-  font-size: 18px;
-}
-
-.hp-minus-button {
-  background: #ef4444;
-}
-
-.hp-plus-button {
-  background: #22c55e;
-}
-
-.turn-end-button {
-  width: 100%;
-  padding: 10px 4px;
-  background: #eab308;
-  color: #111827;
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-/* 共通アイコン/数値 */
-.status-icon,
-.power-icon {
-  height: 32px;
-  line-height: 32px;
+.counter-icon {
+  height: 30px;
+  line-height: 30px;
   font-size: 28px;
   color: #ffffff;
   display: flex;
@@ -123,11 +76,10 @@ button {
   justify-content: center;
 }
 
-.status-value,
-.power-select {
-  height: 58px;
-  line-height: 58px;
-  font-size: 48px;
+.counter-value {
+  height: 50px;
+  line-height: 50px;
+  font-size: 46px;
   font-weight: 900;
   color: #ffffff;
   display: flex;
@@ -135,91 +87,31 @@ button {
   justify-content: center;
 }
 
-/* パル枠 */
-.pal-area {
-  min-width: 0;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
-}
-
-.pal-slot {
-  display: grid;
-  grid-template-rows: 1fr 132px;
-  gap: 8px;
-  padding: 8px;
-}
-
-.power-main {
-  align-self: center;
-  display: grid;
-  grid-template-rows: auto auto;
-  justify-items: center;
-  align-content: center;
-  gap: 8px;
-}
-
-.power-select {
-  width: 100%;
-  border: 0;
-  background: transparent;
-  text-align: center;
-  text-align-last: center;
-  appearance: none;
-  padding: 0;
-}
-
-.power-select:focus {
-  outline: 2px solid #3b82f6;
-  border-radius: 10px;
-}
-
-.pal-buttons {
+.counter-action-area {
   align-self: end;
-  display: grid;
-  grid-template-rows: auto auto auto;
-  gap: 4px;
+  width: 100%;
 }
 
-.power-adjust-buttons {
+.counter-buttons {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4px;
+  gap: 8px;
 }
 
-.power-adjust-buttons button,
-.lock-button,
-.delete-button {
-  width: 100%;
-  min-width: 0;
-  padding: 8px 4px;
-  font-size: 18px;
+.counter-buttons button {
+  padding: 10px 4px;
+  font-size: 22px;
 }
 
-.minus-button {
-  background: #3b82f6;
+.minus-red {
+  background: #ef4444;
 }
 
-.plus-button {
-  background: #3b82f6;
-}
-
-.lock-button {
-  background: #64748b;
-}
-
-.lock-button.locked {
+.plus-green {
   background: #22c55e;
 }
 
-.delete-button {
-  background: #ef4444;
-  color: #ffffff;
-  font-size: 22px;
-  line-height: 1;
-}
-
-/* ソウル枠 */
 .bottom-area {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
@@ -230,45 +122,55 @@ button {
 .soul-deck-panel {
   display: grid;
   grid-template-rows: 3fr 1fr;
-  gap: 6px;
+  gap: 8px;
   min-height: 0;
 }
 
 .soul-draw-button {
   background: #7c3aed;
-  display: grid;
-  align-content: center;
-  justify-items: center;
-  gap: 10px;
-}
-
-.soul-draw-button span {
-  font-size: 28px;
-}
-
-.soul-draw-button strong {
-  font-size: 30px;
-  line-height: 1;
+  font-size: 24px;
+  line-height: 1.2;
+  padding: 8px;
 }
 
 .soul-return-button {
   background: #ef4444;
-  font-size: 18px;
+  font-size: 22px;
+}
+
+.soul-zone-panel {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 8px;
+  border-radius: 14px;
+  background: #1e293b;
+}
+
+.soul-count {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1;
+  padding-top: 4px;
 }
 
 .soul-zone {
-  display: flex;
-  align-items: center;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 70px);
+  grid-template-rows: repeat(2, 104px);
+  grid-auto-flow: row;
+  align-content: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   overflow: hidden;
 }
 
 .soul-card {
-  flex: 0 0 auto;
-  width: 58px;
-  height: 86px;
-  border-radius: 10px;
+  width: 70px;
+  height: 104px;
+  border-radius: 12px;
   background: linear-gradient(135deg, #facc15, #f97316);
   border: 3px solid #fef3c7;
   transition: transform 0.15s ease;
@@ -278,34 +180,34 @@ button {
   transform: rotate(90deg);
 }
 
+.soul-action-panel {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: 2fr 1fr 1fr;
+  gap: 8px;
+}
+
 .spend-soul-button {
   width: 100%;
   height: 100%;
-  align-self: stretch;
-  justify-self: stretch;
-  background: #334155;
-  border: 2px solid #475569;
+  background: #3b82f6;
+  border: 2px solid #60a5fa;
   font-size: 24px;
 }
-.hp-buttons,
-.power-adjust-buttons,
-.pal-buttons,
-.soul-deck-panel {
-  gap: 8px;
+
+.stand-soul-button {
+  width: 100%;
+  height: 100%;
+  background: #22c55e;
+  border: 2px solid #86efac;
+  font-size: 24px;
 }
 
-.hp-action-area {
-  gap: 8px;
-}
-
-.pal-slot {
-  gap: 12px;
-}
-
-.bottom-area {
-  gap: 12px;
-}
-
-.soul-zone {
-  gap: 10px;
+.turn-start-button {
+  width: 100%;
+  height: 100%;
+  background: #eab308;
+  color: #111827;
+  border: 2px solid #fde047;
+  font-size: 20px;
 }
